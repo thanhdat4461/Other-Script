@@ -1,9 +1,7 @@
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
-local w = library:CreateWindow("BERRY'S PRISON RUN!")
+local Window = library:CreateWindow("BERRY'S PRISON RUN!")
 
-local Main = w:CreateFolder("Egg Hunt")
-
-_G.FreeGamePass = false;
+local Main = Window:CreateFolder("Egg Hunt")
 
 Main:Button("Collect All Egg",function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-112.224648, 140.72821, -15.9677763, 1, 0, 0, 0, 1, 0, 0, 0, 1)
@@ -45,24 +43,16 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-811.678
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2600.32202, 951.016296, -567.443054, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 end)
 
-Main:Toggle("Auto Free Gamepass",function(bool)
-    shared.toggle = bool;
-    _G.FreeGamePass = bool;
-end)
-
-b:Label("Made By ExploitBacon",{
-    TextSize = 20;
-    TextColor = Color3.fromRGB(255,255,255);
-    BgColor = Color3.fromRGB(69,69,69);
-}) 
-
-    spawn(function()
-        if _G.FreeGamePass then
-        while _G.FreeGamePass == true do
-        for i,v in pairs(game:GetService("ReplicatedStorage").ItemModels.VipTools:GetChildren()) do
+Main:Button("Get Free Gamepass",function()
+for i,v in pairs(game:GetService("ReplicatedStorage").ItemModels.VipTools:GetChildren()) do
     if v.ClassName == "Tool" then
        v:Clone().Parent = game.Players.LocalPlayer.Backpack
-        task.wait()
     end
 end
 end)
+
+Main:Label("Made By ExploitBacon",{
+    TextSize = 20;
+    TextColor = Color3.fromRGB(255,255,255);
+    BgColor = Color3.fromRGB(69,69,69);
+})
